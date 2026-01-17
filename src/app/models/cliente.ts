@@ -3,4 +3,6 @@ export interface Cliente {
     nombre: string;
     apellidos: string;
     direccion: string;
+    usuario: string;
+    contrasenia: string;
 }

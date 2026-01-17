@@ -22,6 +22,8 @@ export class GuardarClienteComponent implements OnInit {
   nombreControl = new FormControl();
   apellidosControl = new FormControl();
   direccionControl = new FormControl();
+  usuarioControl = new FormControl();
+  contraseniaControl = new FormControl();
 
   idCliente: number = 0;
   modoEdicion: boolean = false;
@@ -31,6 +33,8 @@ export class GuardarClienteComponent implements OnInit {
       nombre: this.nombreControl,
       apellidos: this.apellidosControl,
       direccion: this.direccionControl,
+      usuario: this.usuarioControl,
+      contrasenia: this.contraseniaControl,
     })
 
     try {
@@ -61,6 +65,8 @@ export class GuardarClienteComponent implements OnInit {
       nombre: this.formCliente.value.nombre,
       apellidos: this.formCliente.value.apellidos,
       direccion: this.formCliente.value.direccion,
+      usuario: this.usuarioControl.value,
+      contrasenia: this.contraseniaControl.value,
     }
     this.clienteService.save(resquest).subscribe((data) => {
       if(data && data > 0) {
@@ -85,6 +91,8 @@ export class GuardarClienteComponent implements OnInit {
       nombre: this.formCliente.value.nombre,
       apellidos: this.formCliente.value.apellidos,
       direccion: this.formCliente.value.direccion,
+      usuario: this.usuarioControl.value,
+      contrasenia: this.contraseniaControl.value,
     }
     this.clienteService.update(resquest).subscribe((data) => {
       if(data && data > 0) {
