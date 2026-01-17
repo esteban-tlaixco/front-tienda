@@ -7,6 +7,7 @@ import { ArticulosComponent } from "./articulos/articulos.component";
 import { GuardarArticuloComponent } from "./articulos/guardar-articulo/guardar-articulo.component";
 import { ClientesComponent } from "./clientes/clientes.component";
 import { GuardarClienteComponent } from "./clientes/guardar-cliente/guardar-cliente.component";
+import { CarritoComponent } from "./carrito/carrito.component";
 
 const routes: Routes = [
     {
@@ -56,6 +57,11 @@ const routes: Routes = [
             {
                 path: 'clientes/modificar/:id',
                 component: GuardarClienteComponent
+            }
+            ,
+            {
+                path: 'carrito',
+                component: CarritoComponent
             }
         ]
     }

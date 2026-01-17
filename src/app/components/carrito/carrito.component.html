@@ -1,0 +1,30 @@
+<div class="cmp-content">
+
+    <div class="articulos-container">
+        <mat-card class="example-card" appearance="outlined" *ngFor="let articulo of larticulos">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{articulo.descripcion}}</mat-card-title>
+                <mat-card-subtitle>{{articulo.precio | currency}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
+                alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <span>Producto: {{articulo.descripcion}}</span>
+                <br>
+                <span>Tienda: {{articulo.tienda}}</span>
+                <br>
+                <span>Precio: <span style="font-weight: bold;">{{articulo. precio | currency}}</span></span>
+            </mat-card-content>
+            <mat-card-actions class="buttons">
+                <button mat-button class="btn-blue" (click)="add(articulo)"
+                [matBadgeHidden]="articulo.apartados < 1"  matBadge="{{articulo.apartados}}"><mat-icon>add_shopping_cart</mat-icon>Agregar al carrito</button>
+                <button mat-button class="btn-detail">Detalles</button>
+            </mat-card-actions>
+        </mat-card>
+
+    </div>
+
+
+
+</div>

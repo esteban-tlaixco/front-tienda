@@ -1,0 +1,28 @@
+.example-card {
+  padding: 3rem;
+  box-shadow: 10px 10px 30px rgba(17, 12, 12, 0.3);
+}
+
+.example-card:hover {
+    box-shadow: 15px, 15px, 15px, rgba(3, 94, 88, 0.2);
+    background-color: rgb(227, 227, 227);
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+
+.articulos-container {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}

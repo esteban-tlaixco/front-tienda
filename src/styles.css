@@ -69,3 +69,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     justify-content: flex-end;
     padding: 10px;
 }
+
+.btn-blue {
+    background-color: rgb(49, 148, 90);
+}
+
+.btn-blue:hover {
+    background-color: rgb(12, 51, 28);
+    color: white;
+}
+
+.btn-detail {
+    background-color: rgb(128, 216, 216);
+}
+
+.btn-detail:hover {
+    background-color: rgb(25, 63, 63);
+    color: white;
+}

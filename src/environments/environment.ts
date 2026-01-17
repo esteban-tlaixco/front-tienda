@@ -7,7 +7,9 @@ export const environment = {
   production: false,
   tiendas: url + 'tiendas',
   articulosApi: url + 'articulos',
-  clientesApi: url + 'clientes'
+  clientesApi: url + 'clientes',
+  securityApi: url + 'security',
+  carritoApi: url + 'carrito',
 };
 
 /*
