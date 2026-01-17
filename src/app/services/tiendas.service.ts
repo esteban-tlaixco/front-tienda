@@ -28,4 +28,8 @@ export class TiendaService {
         return this.http.put<number>(this.urlService + "/update", reques);
     }
 
+    buscar(id: number) {
+        return this.http.get<Tienda>(this.urlService + "/" + id);
+    }
+
 }

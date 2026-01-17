@@ -30,14 +30,21 @@ export class GuardarTiendaComponent implements OnInit {
     
     try {
      this.activatedRoute.params.subscribe((params)=> {
-      debugger
         this.idTienda = params['id'];
         if(this.idTienda != null && this.idTienda > 0) {
           this.modoEdicion = true;
+          this.buscar(this.idTienda);
         }
      }) 
     }
     catch (e) {}
+  }
+
+  buscar(id: number) {
+    this.tiendaService.buscar(id).subscribe((r) => {
+      this.sucursalControl.setValue(r.sucursal);
+      this.direccionControl.setValue(r.direccion);
+    });
   }
 
   guardar() {
