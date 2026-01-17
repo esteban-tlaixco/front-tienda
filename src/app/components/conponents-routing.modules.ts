@@ -3,6 +3,8 @@ import { RouterModule, Routes } from "@angular/router";
 import { IndexComponent } from "./index/index.component";
 import { TiendasComponent } from "./tiendas/tiendas.component";
 import { GuardarTiendaComponent } from "./tiendas/guardar-tienda/guardar-tienda.component";
+import { ArticulosComponent } from "./articulos/articulos.component";
+import { GuardarArticuloComponent } from "./articulos/guardar-articulo/guardar-articulo.component";
 
 const routes: Routes = [
     {
@@ -22,6 +24,21 @@ const routes: Routes = [
             {
                 path: 'tiendas/modificar/:id',
                 component: GuardarTiendaComponent
+            }
+            ,
+            {
+                path: 'articulos',
+                component: ArticulosComponent
+            }
+            ,
+            {
+                path: 'articulos/crear',
+                component: GuardarArticuloComponent
+            }
+            ,
+            {
+                path: 'articulos/modificar/:modificar',
+                component: GuardarArticuloComponent
             }
         ]
     }

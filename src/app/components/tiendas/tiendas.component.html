@@ -1,4 +1,5 @@
 <div class="cmp-content">
+    <h1>Tiendas</h1>
     <form action="">
         <!--at-form-field appearance="outline">
         <mat-label></mat-label>
@@ -6,35 +7,33 @@
     </mat-form-field-->
     </form>
 
-    <section class="secction-buttons">
+    <section class="secction-buttons-header">
         <button mat-button class="btn-add" (click)="add()"><mat-icon>add</mat-icon>Agregar</button>
     </section>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
-        <!-- Position Column -->
         <ng-container matColumnDef="sucursal">
             <th mat-header-cell *matHeaderCellDef>Sucursal</th>
             <td mat-cell *matCellDef="let element">{{element.sucursal}}</td>
         </ng-container>
 
-        <!-- Name Column -->
         <ng-container matColumnDef="direccion">
             <th mat-header-cell *matHeaderCellDef>Dirección</th>
             <td mat-cell *matCellDef="let element">{{element.direccion}}</td>
         </ng-container>
 
-        <!-- Weight Column -->
         <ng-container matColumnDef="modificar">
             <th mat-header-cell *matHeaderCellDef>Modificar</th>
-            <td mat-cell *matCellDef="let element" (click)="modificar(element)"><button mat-button
-                    class="btn-warning">Modificar</button></td>
+            <td mat-cell *matCellDef="let element">
+                <button mat-button (click)="modificar(element)" class="btn-warning">Modificar</button>
+            </td>
         </ng-container>
 
-        <!-- Symbol Column -->
         <ng-container matColumnDef="eliminar">
             <th mat-header-cell *matHeaderCellDef>Eliminar</th>
-            <td mat-cell *matCellDef="let element" (click)="delete(element)"><button mat-button
-                    class="btn-danger">Eliminar</button></td>
+            <td mat-cell *matCellDef="let element">
+                <button mat-button (click)="delete(element)" class="btn-danger">Eliminar</button>
+            </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

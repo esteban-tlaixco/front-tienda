@@ -19,13 +19,17 @@ import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { GuardarTiendaComponent } from './components/tiendas/guardar-tienda/guardar-tienda.component';
 import { MatIconModule } from '@angular/material/icon';
+import { ArticulosComponent } from './components/articulos/articulos.component';
+import { GuardarArticuloComponent } from './components/articulos/guardar-articulo/guardar-articulo.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     IndexComponent,
     TiendasComponent,
-    GuardarTiendaComponent
+    GuardarTiendaComponent,
+    ArticulosComponent,
+    GuardarArticuloComponent
   ],
   imports: [
     BrowserModule,
