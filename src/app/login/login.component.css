@@ -1,0 +1,31 @@
+.container {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
+
+
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    gap: 10px; 
+    box-shadow: 10px 10px 30px rgba(0.1, 0.1, 0.1, 0.3);
+    background-color: rgb(236, 247, 249);
+    border-radius: 7px;
+}
+
+.card form {
+    margin: 45px;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}

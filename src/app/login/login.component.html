@@ -1,0 +1,21 @@
+<div class="container">
+    <section class="card">
+        <form action="">
+            <mat-form-field appearance="fill">
+                <mat-label>Usuario</mat-label>
+                <input matInput type="text" name="usuario" />
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" name="password" />
+            </mat-form-field>
+
+            <div class="buttons">
+                <button matButton (click)="login()">Iniciar sesión</button>
+
+                <button matButton>Cancelar</button>
+            </div>
+        </form>
+    </section>
+</div>

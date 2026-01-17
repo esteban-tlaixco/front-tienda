@@ -1,1 +1,65 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.cmp-content {
+    padding: 2rem;
+}
+
+.btn-warning {
+    background-color: orange;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: darkorange;
+    color: white;
+}
+
+.btn-danger {
+    background-color: red;
+    color: white;
+}
+.btn-danger:hover {
+    background-color: darkred;
+    color: white;
+}
+
+.btn-add {
+    background-color: green;
+    color: white;
+}
+
+.btn-add:hover {
+    background-color: darkgreen;
+    color: white;
+}
+
+.btn-save {
+    background-color: blue;
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+.btn-cancel {
+    background-color: gray;
+    color: white;
+
+}
+.btn-cancel:hover {
+    background-color: darkgray;
+    color: white;
+}
+
+.secction-buttons {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
