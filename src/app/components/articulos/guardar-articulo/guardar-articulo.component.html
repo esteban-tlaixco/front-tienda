@@ -1,5 +1,14 @@
 <div class="cmp-content">
     <form [formGroup]="formArticulo">
+        <mat-form-field  appearance="outline">
+            <mat-label>Tienda</mat-label>
+            <mat-select formControlName="tienda">
+            <mat-option *ngFor="let tienda of ltinedas" [value]="tienda">
+                {{tienda.sucursal}}
+            </mat-option>
+        </mat-select>
+        </mat-form-field>
+
         <mat-form-field appearance="outline">
             <mat-label>Código</mat-label>
             <input matInput formControlName="codigo">

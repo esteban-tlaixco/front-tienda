@@ -4,6 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Articulo } from 'src/app/models/articulo';
 import { ArticuloService } from 'src/app/services/articulo.service';
 import Swal from 'sweetalert2';
+import { Tienda } from '../../tiendas/tiendas.component';
+import { TiendaService } from 'src/app/services/tiendas.service';
+import { ArticuloRequest } from 'src/app/models/articulo.request';
 
 @Component({
   selector: 'app-guardar-articulo',
@@ -14,7 +17,8 @@ export class GuardarArticuloComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, 
     private articuloService: ArticuloService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private tiendaService: TiendaService,
   ) { }
 
   formArticulo!: FormGroup;
@@ -23,9 +27,12 @@ export class GuardarArticuloComponent implements OnInit {
   precioControl = new FormControl();
   //imagenControl = new FormControl();
   stockControl = new FormControl();
+  tiendaControl = new FormControl();
 
   codigoarticulo: string = '';
   modoEdicion: boolean = false;
+
+  ltinedas: Tienda[] = [];
 
   ngOnInit(): void {
     this.formArticulo = this.formBuilder.group({
@@ -34,6 +41,7 @@ export class GuardarArticuloComponent implements OnInit {
       precio:   this.precioControl,
       //imagen: [''],
       stock: this.stockControl,
+      tienda: this.tiendaControl,
     });
 
     try {
@@ -48,6 +56,11 @@ export class GuardarArticuloComponent implements OnInit {
     catch (error) {
 
     }
+
+    //Recupero las tiendas
+    this.tiendaService.tiendas().subscribe((data) => {
+      this.ltinedas = data;
+    });
   }
 
   buscar(codigo: string) {
@@ -64,7 +77,14 @@ export class GuardarArticuloComponent implements OnInit {
 
 
   guardar() {
-    let request: Articulo = this.formArticulo.value;
+    let request: ArticuloRequest = {
+      codigo: this.formArticulo.value.codigo,
+      descripcion: this.formArticulo.value.descripcion,
+      precio: this.formArticulo.value.precio,
+      //imagen: this.formArticulo.value.imagen,
+      stock: this.formArticulo.value.stock,
+      id_tienda: this.formArticulo.value.tienda.id,
+    }
     this.articuloService.save(request).subscribe((res) => {
       if(res > 0) {
         Swal.fire({
@@ -82,7 +102,14 @@ export class GuardarArticuloComponent implements OnInit {
   }
 
   modificar() {
-    let request: Articulo = this.formArticulo.value;
+     let request: ArticuloRequest = {
+      codigo: this.formArticulo.value.codigo,
+      descripcion: this.formArticulo.value.descripcion,
+      precio: this.formArticulo.value.precio,
+      //imagen: this.formArticulo.value.imagen,
+      stock: this.formArticulo.value.stock,
+      id_tienda: this.formArticulo.value.tienda.id,
+    }
     this.articuloService.update(request).subscribe((res) => {
       if(res > 0) {
         Swal.fire({

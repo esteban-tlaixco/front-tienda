@@ -23,6 +23,7 @@ import { ArticulosComponent } from './components/articulos/articulos.component';
 import { GuardarArticuloComponent } from './components/articulos/guardar-articulo/guardar-articulo.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { GuardarClienteComponent } from './components/clientes/guardar-cliente/guardar-cliente.component';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +51,7 @@ import { GuardarClienteComponent } from './components/clientes/guardar-cliente/g
     HttpClientModule,
     MatButtonModule,
     MatIconModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
