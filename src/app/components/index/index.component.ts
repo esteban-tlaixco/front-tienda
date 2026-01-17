@@ -7,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  isadmin: boolean = true;
+  isadmin: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+    let rol = sessionStorage.getItem("s-rol-sys");
+    if(rol && rol === "CLIENTE") {
+      this.isadmin = false
+    }
+    else {
+      this.isadmin = true;
+    }
   }
 
 }
