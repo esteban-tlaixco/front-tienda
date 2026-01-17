@@ -5,6 +5,8 @@ import { TiendasComponent } from "./tiendas/tiendas.component";
 import { GuardarTiendaComponent } from "./tiendas/guardar-tienda/guardar-tienda.component";
 import { ArticulosComponent } from "./articulos/articulos.component";
 import { GuardarArticuloComponent } from "./articulos/guardar-articulo/guardar-articulo.component";
+import { ClientesComponent } from "./clientes/clientes.component";
+import { GuardarClienteComponent } from "./clientes/guardar-cliente/guardar-cliente.component";
 
 const routes: Routes = [
     {
@@ -39,6 +41,21 @@ const routes: Routes = [
             {
                 path: 'articulos/modificar/:modificar',
                 component: GuardarArticuloComponent
+            }
+            ,
+            {
+                path: 'clientes',
+                component: ClientesComponent
+            }
+            ,
+            {
+                path: 'clientes/crear',
+                component: GuardarClienteComponent
+            }
+            ,
+            {
+                path: 'clientes/modificar/:id',
+                component: GuardarClienteComponent
             }
         ]
     }

@@ -6,7 +6,8 @@ let url: string = 'https://localhost:44356/api/';
 export const environment = {
   production: false,
   tiendas: url + 'tiendas',
-  articulosApi: url + 'articulos'
+  articulosApi: url + 'articulos',
+  clientesApi: url + 'clientes'
 };
 
 /*

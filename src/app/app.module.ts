@@ -21,6 +21,8 @@ import { GuardarTiendaComponent } from './components/tiendas/guardar-tienda/guar
 import { MatIconModule } from '@angular/material/icon';
 import { ArticulosComponent } from './components/articulos/articulos.component';
 import { GuardarArticuloComponent } from './components/articulos/guardar-articulo/guardar-articulo.component';
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { GuardarClienteComponent } from './components/clientes/guardar-cliente/guardar-cliente.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,9 @@ import { GuardarArticuloComponent } from './components/articulos/guardar-articul
     TiendasComponent,
     GuardarTiendaComponent,
     ArticulosComponent,
-    GuardarArticuloComponent
+    GuardarArticuloComponent,
+    ClientesComponent,
+    GuardarClienteComponent
   ],
   imports: [
     BrowserModule,

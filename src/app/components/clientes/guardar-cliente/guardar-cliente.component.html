@@ -1,0 +1,23 @@
+<div class="cmp-content">
+    <form [formGroup]="formCliente">
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Apellidos</mat-label>
+            <input matInput formControlName="apellidos">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Dirección</mat-label>
+            <input matInput formControlName="direccion">
+        </mat-form-field>
+    </form>
+    <section class="secction-buttons">
+        <button mat-raised-button class="btn-save" (click)="guardar()" *ngIf="!modoEdicion">Guardar</button>
+        <button mat-raised-button class="btn-save" (click)="modificar()" *ngIf="modoEdicion">Modificar</button>
+        <button mat-raised-button class="btn-cancel" routerLink="/index/tiendas">Cancelar</button>
+    </section>
+</div>
