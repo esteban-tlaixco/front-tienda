@@ -7,7 +7,8 @@ import { ArticulosComponent } from "./articulos/articulos.component";
 import { GuardarArticuloComponent } from "./articulos/guardar-articulo/guardar-articulo.component";
 import { ClientesComponent } from "./clientes/clientes.component";
 import { GuardarClienteComponent } from "./clientes/guardar-cliente/guardar-cliente.component";
-import { CarritoComponent } from "./carrito/carrito.component";
+import { CarritoComponent } from "./public/carrito/carrito.component";
+import { SeleccionArticuloComponent } from "./public/seleccion-articulo/seleccion-articulo.component";
 
 const routes: Routes = [
     {
@@ -60,7 +61,12 @@ const routes: Routes = [
             }
             ,
             {
-                path: 'carrito',
+                path: 'comprar/articulos',
+                component: SeleccionArticuloComponent
+            }
+            ,
+            {
+                path: 'comprar/carrito',
                 component: CarritoComponent
             }
         ]

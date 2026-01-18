@@ -4,6 +4,7 @@ export interface Articulo {
     codigo: string;
     descripcion: string;
     precio: number;
-    imagen: Byte[];
+    imagen: string;
     stock: number;
+    id_tienda?: number;
 }

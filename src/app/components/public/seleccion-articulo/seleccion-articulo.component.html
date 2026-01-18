@@ -7,7 +7,7 @@
                 <mat-card-title>{{articulo.descripcion}}</mat-card-title>
                 <mat-card-subtitle>{{articulo.precio | currency}}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
+            <img mat-card-image src="{{articulo.imagen}}"
                 alt="Photo of a Shiba Inu">
             <mat-card-content>
                 <span>Producto: {{articulo.descripcion}}</span>
@@ -18,8 +18,12 @@
             </mat-card-content>
             <mat-card-actions class="buttons">
                 <button mat-button class="btn-blue" (click)="add(articulo)"
-                [matBadgeHidden]="articulo.apartados < 1"  matBadge="{{articulo.apartados}}"><mat-icon>add_shopping_cart</mat-icon>Agregar al carrito</button>
-                <button mat-button class="btn-detail">Detalles</button>
+                [matBadgeHidden]="articulo.apartados < 1"  
+                matBadge="{{articulo.apartados}}"
+                [disabled]="esVisitante"><mat-icon>add_shopping_cart</mat-icon>Agregar al carrito</button>
+
+                <button class="btn-blue" mat-button
+                (click)="comprar(articulo)"><mat-icon> local_mall</mat-icon>Comprar</button>
             </mat-card-actions>
         </mat-card>
 

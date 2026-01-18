@@ -24,9 +24,10 @@ import { GuardarArticuloComponent } from './components/articulos/guardar-articul
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { GuardarClienteComponent } from './components/clientes/guardar-cliente/guardar-cliente.component';
 import { MatSelectModule } from '@angular/material/select';
-import { CarritoComponent } from './components/carrito/carrito.component';
+import { CarritoComponent } from './components/public/carrito/carrito.component';
 import {MatCardModule} from '@angular/material/card'
 import {MatBadgeModule} from '@angular/material/badge';
+import { SeleccionArticuloComponent } from './components/public/seleccion-articulo/seleccion-articulo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     GuardarArticuloComponent,
     ClientesComponent,
     GuardarClienteComponent,
-    CarritoComponent
+    CarritoComponent,
+    SeleccionArticuloComponent
   ],
   imports: [
     BrowserModule,

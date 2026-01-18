@@ -1,6 +1,5 @@
 .content {
     display: flex;
-    margin-top: 100px;
     flex-direction: row;
     align-items: center;
   }
@@ -9,6 +8,7 @@
     background-color: rgb(15, 0, 52);
     width: 15%;
     height: 100vh;
+    margin-top: 2rem;
 }
 
 .sidebar a {
@@ -21,6 +21,20 @@
 }
 
 a:hover {
+    background-color: rgb(107, 106, 109);
+}
+
+.sidebar button {
+    display: flex;
+    padding: 20px;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+button:hover {
     background-color: rgb(107, 106, 109);
 }
 

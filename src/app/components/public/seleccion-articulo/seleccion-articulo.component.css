@@ -9,10 +9,14 @@
 }
 
 .example-header-image {
-  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQREoUZ8wUZItlKjJjKzqAfHmx9s718HdV-IA&s');
   background-size: cover;
 }
 
+img {
+    max-width: 150px;
+    max-height: 200px;
+}
 
 .articulos-container {
     width: 100%;

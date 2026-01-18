@@ -25,7 +25,7 @@ export class GuardarArticuloComponent implements OnInit {
   codigoControl = new FormControl();
   descripcionControl = new FormControl();
   precioControl = new FormControl();
-  //imagenControl = new FormControl();
+  imagenControl = new FormControl();
   stockControl = new FormControl();
   tiendaControl = new FormControl();
 
@@ -39,7 +39,7 @@ export class GuardarArticuloComponent implements OnInit {
       codigo: this.codigoControl,
       descripcion: this.descripcionControl,
       precio:   this.precioControl,
-      //imagen: [''],
+      imagen: this.imagenControl,
       stock: this.stockControl,
       tienda: this.tiendaControl,
     });
@@ -65,13 +65,12 @@ export class GuardarArticuloComponent implements OnInit {
 
   buscar(codigo: string) {
     this.articuloService.findById(codigo).subscribe((data) => {
-      this.formArticulo.patchValue({
-        codigo: data.codigo,
-        descripcion: data.descripcion,
-        precio: data.precio,
-        //imagen: data.imagen,
-        stock: data.stock,
-      });
+      this.codigoControl.setValue(data.codigo);
+      this.descripcionControl.setValue(data.descripcion);
+      this.precioControl.setValue(data.precio);
+      this.imagenControl.setValue(data.imagen);
+      this.stockControl.setValue(data.stock)
+      this.tiendaControl.setValue(this.ltinedas.find((t) => t.id == data.id_tienda))
     });
   }
 
@@ -81,7 +80,7 @@ export class GuardarArticuloComponent implements OnInit {
       codigo: this.formArticulo.value.codigo,
       descripcion: this.formArticulo.value.descripcion,
       precio: this.formArticulo.value.precio,
-      //imagen: this.formArticulo.value.imagen,
+      imagen: this.formArticulo.value.imagen,
       stock: this.formArticulo.value.stock,
       id_tienda: this.formArticulo.value.tienda.id,
     }
@@ -106,7 +105,7 @@ export class GuardarArticuloComponent implements OnInit {
       codigo: this.formArticulo.value.codigo,
       descripcion: this.formArticulo.value.descripcion,
       precio: this.formArticulo.value.precio,
-      //imagen: this.formArticulo.value.imagen,
+      imagen: this.formArticulo.value.imagen,
       stock: this.formArticulo.value.stock,
       id_tienda: this.formArticulo.value.tienda.id,
     }
