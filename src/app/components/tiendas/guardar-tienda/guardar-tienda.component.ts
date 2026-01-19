@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Tienda } from '../tiendas.component';
 import { TiendaService } from 'src/app/services/tiendas.service';
@@ -17,8 +17,8 @@ export class GuardarTiendaComponent implements OnInit {
     private tiendaService: TiendaService) { }
 
   formTienda!: FormGroup;
-  sucursalControl = new FormControl();
-  direccionControl = new FormControl();
+  sucursalControl = new FormControl(null, Validators.required);
+  direccionControl = new FormControl(null);
   idTienda: number = 0;
   modoEdicion: boolean = false;
 
@@ -48,7 +48,7 @@ export class GuardarTiendaComponent implements OnInit {
   }
 
   guardar() {
-    if(this.sucursalControl.value == null || this.direccionControl.value == null) {
+    if(!this.formTienda.valid) {
       Swal.fire({
         text: "Completa todos los campos requeridos",
         icon: 'warning',
@@ -59,7 +59,7 @@ export class GuardarTiendaComponent implements OnInit {
     let tienda: Tienda = {
       id: 0,
       sucursal: this.sucursalControl.value,
-      direccion: this.direccionControl.value
+      direccion: this.direccionControl.value ?? ''
     }
     this.tiendaService.save(tienda).subscribe((r) => {
       if (r > 0) {
@@ -92,7 +92,7 @@ export class GuardarTiendaComponent implements OnInit {
     let tienda: Tienda = {
       id: parseInt(this.idTienda.toString()),
       sucursal: this.sucursalControl.value,
-      direccion: this.direccionControl.value
+      direccion: this.direccionControl.value ?? ''
     }
     this.tiendaService.update(tienda).subscribe((r) => {
       if (r > 0) {

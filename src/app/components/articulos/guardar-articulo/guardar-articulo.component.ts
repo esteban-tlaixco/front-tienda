@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Articulo } from 'src/app/models/articulo';
 import { ArticuloService } from 'src/app/services/articulo.service';
@@ -22,12 +22,12 @@ export class GuardarArticuloComponent implements OnInit {
   ) { }
 
   formArticulo!: FormGroup;
-  codigoControl = new FormControl();
-  descripcionControl = new FormControl();
-  precioControl = new FormControl();
-  imagenControl = new FormControl();
-  stockControl = new FormControl();
-  tiendaControl = new FormControl();
+  codigoControl = new FormControl(null, Validators.required);
+  descripcionControl = new FormControl(null);
+  precioControl = new FormControl(0, Validators.required);
+  imagenControl = new FormControl(null);
+  stockControl = new FormControl(1, Validators.required);
+  tiendaControl = new FormControl(null, Validators.required);
 
   codigoarticulo: string = '';
   modoEdicion: boolean = false;
@@ -76,12 +76,19 @@ export class GuardarArticuloComponent implements OnInit {
 
 
   guardar() {
+    if(!this.formArticulo.valid){
+      Swal.fire({
+        title: 'Completa los datos requeridos',
+        icon: 'warning'
+      })
+    }
+
     let request: ArticuloRequest = {
       codigo: this.formArticulo.value.codigo,
-      descripcion: this.formArticulo.value.descripcion,
-      precio: this.formArticulo.value.precio,
-      imagen: this.formArticulo.value.imagen,
-      stock: this.formArticulo.value.stock,
+      descripcion: this.formArticulo.value.descripcion ?? '',
+      precio: this.formArticulo.value.precio ?? 0,
+      imagen: this.formArticulo.value.imagen ?? '',
+      stock: this.formArticulo.value.stock ?? 0,
       id_tienda: this.formArticulo.value.tienda.id,
     }
     this.articuloService.save(request).subscribe((res) => {
@@ -103,10 +110,10 @@ export class GuardarArticuloComponent implements OnInit {
   modificar() {
      let request: ArticuloRequest = {
       codigo: this.formArticulo.value.codigo,
-      descripcion: this.formArticulo.value.descripcion,
-      precio: this.formArticulo.value.precio,
-      imagen: this.formArticulo.value.imagen,
-      stock: this.formArticulo.value.stock,
+      descripcion: this.formArticulo.value.descripcion ?? '',
+      precio: this.formArticulo.value.precio ?? 0,
+      imagen: this.formArticulo.value.imagen ?? '',
+      stock: this.formArticulo.value.stock ?? 0,
       id_tienda: this.formArticulo.value.tienda.id,
     }
     this.articuloService.update(request).subscribe((res) => {

@@ -1,5 +1,6 @@
 <div class="cmp-content">
     <form [formGroup]="formCliente">
+        <h1>{{modoEdicion ? 'Modificar cliente' : 'Registrar cliente'}}</h1>
         <mat-form-field appearance="outline">
             <mat-label>Nombre</mat-label>
             <input matInput formControlName="nombre">
@@ -28,6 +29,6 @@
     <section class="secction-buttons">
         <button mat-raised-button class="btn-save" (click)="guardar()" *ngIf="!modoEdicion">Guardar</button>
         <button mat-raised-button class="btn-save" (click)="modificar()" *ngIf="modoEdicion">Modificar</button>
-        <button mat-raised-button class="btn-cancel" routerLink="/index/tiendas">Cancelar</button>
+        <button mat-raised-button class="btn-cancel" routerLink="/index/clientes">Cancelar</button>
     </section>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
 import { ClienteService } from 'src/app/services/cliente.service';
@@ -19,11 +19,11 @@ export class GuardarClienteComponent implements OnInit {
 
   formCliente!: FormGroup;
 
-  nombreControl = new FormControl();
-  apellidosControl = new FormControl();
-  direccionControl = new FormControl();
-  usuarioControl = new FormControl();
-  contraseniaControl = new FormControl();
+  nombreControl = new FormControl(null, Validators.required);
+  apellidosControl = new FormControl(null, Validators.required);
+  direccionControl = new FormControl(null, Validators.required);
+  usuarioControl = new FormControl(null, Validators.required);
+  contraseniaControl = new FormControl(null, Validators.required);
 
   idCliente: number = 0;
   modoEdicion: boolean = false;
@@ -55,11 +55,20 @@ export class GuardarClienteComponent implements OnInit {
         this.nombreControl.setValue(response.nombre);
         this.apellidosControl.setValue(response.apellidos);
         this.direccionControl.setValue(response.direccion);
+        this.usuarioControl.setValue(response.usuario);
       }
     })
   }
 
   guardar() {
+    if(!this.formCliente.valid) {
+      Swal.fire({
+        text: 'Ingresa los datos requeridos',
+        icon: 'warning',
+      })
+      return;
+    }
+
     let resquest: Cliente = {
       id: 0,
       nombre: this.formCliente.value.nombre,

@@ -1,5 +1,6 @@
 <div class="cmp-content">
     <form [formGroup]="formTienda">
+        <h1>{{modoEdicion ? 'Modificar tienda' : 'Registrar tienda'}}</h1>
         <mat-form-field appearance="outline">
             <mat-label>Sucursal</mat-label>
             <input matInput formControlName="sucursal">

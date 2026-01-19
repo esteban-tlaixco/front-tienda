@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class ArticulosComponent implements OnInit {
 
-  constructor(private articuloService: ArticuloService, 
+  constructor(private articuloService: ArticuloService,
     private router: Router) { }
 
   larticulos: Articulo[] = [];
@@ -33,19 +33,31 @@ export class ArticulosComponent implements OnInit {
   }
 
   delete(articulo: Articulo) {
-    this.articuloService.delete(articulo.codigo).subscribe((res) => {
-      if(res == null) {
-        Swal.fire({
-          text: 'Articulo eliminado con exito',
-          icon: 'success',
-        });
-        this.listar();
-      } else {
-        Swal.fire({
-          text: 'Error al eliminar el articulo',
-          icon: 'error',
+    Swal.fire({
+      title: '¿Deseas eliminar el articulo?',
+      icon: 'question',
+      denyButtonText: 'No',
+      confirmButtonText: 'Si',
+      showDenyButton: true,
+      background: 'black'
+    }).then((r) => {
+      if (r.isConfirmed) {
+        this.articuloService.delete(articulo.codigo).subscribe((res) => {
+          if (res == null) {
+            Swal.fire({
+              text: 'Articulo eliminado con exito',
+              icon: 'success',
+            });
+            this.listar();
+          } else {
+            Swal.fire({
+              text: 'Error al eliminar el articulo',
+              icon: 'error',
+            });
+          }
         });
       }
-    });
+    })
+
   }
 }

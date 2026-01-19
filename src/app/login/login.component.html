@@ -12,10 +12,11 @@
             </mat-form-field>
 
             <div class="buttons">
-                <button mat-button (click)="login()">Iniciar sesión</button>
+                <button mat-button (click)="login()" class="btn-detail">Iniciar sesión</button>
 
-                <button mat-button>Cancelar</button>
+                <button mat-button class="btn-gray" (click)="cancelar()">Cancelar</button>
             </div>
+            <a href="#" routerLink="/registro/cliente">Registrarme</a>
         </form>
     </section>
 </div>

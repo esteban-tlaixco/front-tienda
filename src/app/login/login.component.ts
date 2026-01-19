@@ -30,6 +30,13 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    if(!this.usuarioControl.value && !this.passwordControl.value) {
+      Swal.fire({
+        text: 'Ingresa los datos solicitados',
+        icon: 'warning'
+      })
+      return;
+    }
     let request: LoginRequest = {
       username: this.usuarioControl.value,
       password: this.passwordControl.value,
@@ -48,5 +55,9 @@ export class LoginComponent implements OnInit {
       }
     });
     
+  }
+
+  cancelar() {
+    this.formLogin.reset();
   }
 }

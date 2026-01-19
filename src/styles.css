@@ -94,3 +94,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .btn-success:hover {
     background-color: rgb(3, 84, 3);
 }
+
+.btn-gray {
+    background-color: rgb(151, 151, 151);
+}
+
+.btn-gray:hover {
+    background-color: gray;
+}
